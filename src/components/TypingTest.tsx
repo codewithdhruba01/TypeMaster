@@ -298,25 +298,25 @@ const TypingTest: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 animate-fade-in">
+        <div className="text-center mb-8 md:mb-10">
+          <h1 className="text-5xl font-bold font-excon text-gray-800 mb-4 animate-fade-in">
             ⚡Typing Master
           </h1>
-          <p className="text-gray-600 text-xl mb-6">
+          <p className="text-gray-600 text-xl mb-6 font-supreme">
             Test your typing speed and accuracy with customizable settings
           </p>
           
           {/* Test Mode Indicator */}
           <div className="flex justify-center items-center gap-4 mb-4">
             <div className="bg-white rounded-full px-6 py-2 shadow-md border">
-              <span className="text-sm font-semibold text-gray-600">Mode: </span>
-              <span className="text-sm font-bold text-blue-600 capitalize">
+              <span className="text-sm font-semibold font-outfit text-gray-600">Mode: </span>
+              <span className="text-sm font-bold font-outfit text-blue-600 capitalize">
                 {settings.mode} {settings.mode === 'time' ? `(${settings.duration}s)` : `(${settings.wordCount} words)`}
               </span>
             </div>
             <div className="bg-white rounded-full px-6 py-2 shadow-md border">
-              <span className="text-sm font-semibold text-gray-600">Difficulty: </span>
-              <span className="text-sm font-bold text-purple-600 capitalize">{settings.difficulty}</span>
+              <span className="text-sm font-semibold font-outfit text-gray-600">Difficulty: </span>
+              <span className="text-sm font-bold font-outfit text-purple-600 capitalize">{settings.difficulty}</span>
             </div>
           </div>
         </div>
@@ -325,7 +325,7 @@ const TypingTest: React.FC = () => {
         {showSettings && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Test Settings</h3>
+              <h3 className="text-2xl font-bold font-outfit text-gray-800 mb-6 text-center">Test Settings</h3>
               
               <div className="space-y-6">
                 {/* Test Mode */}
@@ -517,7 +517,7 @@ const TypingTest: React.FC = () => {
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-gray-600">
+            <span className="text-sm font-outfit text-gray-600">
               Progress {settings.mode === 'time' ? '(Time)' : '(Characters)'}
             </span>
             <span className="text-sm font-semibold text-gray-800">
@@ -534,13 +534,13 @@ const TypingTest: React.FC = () => {
 
         {/* Text Display */}
         <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 mb-6">
-          <div className="text-xl leading-relaxed font-mono select-none min-h-[120px]">
+          <div className="text-xl leading-relaxed font-poppins select-none min-h-[120px]">
             {renderText()}
           </div>
         </div>
 
         {/* Input Area */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 mb-6">
+        <div className="bg-white rounded-xl p-6 font-poppins shadow-lg border border-gray-100 mb-6">
           <input
             ref={inputRef}
             type="text"
