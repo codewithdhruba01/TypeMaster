@@ -300,7 +300,7 @@ const TypingTest: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold text-gray-800 mb-4 animate-fade-in">
-            ⚡ Professional Typing Test
+            ⚡Typing Master
           </h1>
           <p className="text-gray-600 text-xl mb-6">
             Test your typing speed and accuracy with customizable settings
