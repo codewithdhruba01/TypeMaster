@@ -299,7 +299,7 @@ const TypingTest: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 md:mb-10">
-          <h1 className="text-5xl font-bold font-excon text-gray-800 mb-4 animate-fade-in">
+          <h1 className="text-5xl font-bold font-excon text-gray-800 mb-4 mt-10 animate-fade-in">
             ⚡Typing Master
           </h1>
           <p className="text-gray-600 text-xl mb-6 font-supreme">
