@@ -1,4 +1,6 @@
-# ⚡ Typing Master
+# ⚡Typing Master
+
+![Banner](public/typingmaster-cover.png)
 
 A modern, feature-rich typing test application built with React and TypeScript. Test your typing speed and accuracy with customizable settings, real-time statistics, and professional-grade performance tracking.
 
