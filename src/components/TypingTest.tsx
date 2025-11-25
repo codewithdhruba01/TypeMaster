@@ -33,19 +33,42 @@ interface TestSettings {
 
 const textSamples = {
   easy: [
-    'The cat sat on the mat. It was a sunny day. The birds were singing in the trees. Children played in the park nearby.',
-    'I like to read books. My favorite color is blue. The sun is bright today. We went to the store yesterday.',
-    'Dogs are loyal pets. They love to play fetch. Cats are independent animals. Fish swim in the ocean.',
+    "The cat sat on the mat. It was a sunny day. The birds were singing in the trees. Children played in the park nearby.",
+    "I like to read books. My favorite color is blue. The sun is bright today. We went to the store yesterday.",
+    "Dogs are loyal pets. They love to play fetch. Cats are independent animals. Fish swim in the ocean.",
+    "The sky is clear and blue. Birds fly above the tall trees. People walk in the park early in the morning.",
+    "A little boy played with his toy car. His sister read a book quietly on the couch.",
+    "The flowers in the garden bloom in many colors. Bees buzz around collecting nectar.",
+    "Grandpa told us a funny story. Everyone laughed loudly in the living room.",
+    "We took a short walk after dinner. The cool breeze made the evening pleasant.",
+    "Mom baked delicious cookies today. The smell filled the entire house.",
+    "The teachers prepared a surprise for the students. Everyone clapped with excitement."
   ],
+
   medium: [
-    'Technology has revolutionized the way we communicate, work, and live. From smartphones to artificial intelligence, innovation continues to shape our future in unprecedented ways.',
-    'The art of programming requires patience, creativity, and logical thinking. Writing clean and efficient code is both a science and an art form that demands continuous learning.',
-    "Climate change is one of the most pressing issues of our time. Sustainable practices and renewable energy sources are essential for our planet's future generations.",
+    "Technology has revolutionized the way we communicate, work, and live. Innovation continues shaping our future in many ways.",
+    "The art of programming requires patience, creativity, and logical thinking. Writing clean and efficient code demands practice.",
+    "Climate change is one of the most serious issues of our time. Renewable energy is essential for a sustainable tomorrow.",
+    "Learning new skills allows individuals to grow personally and professionally in an ever-changing world.",
+    "The discovery of ancient fossils helps scientists understand the evolution of life on Earth.",
+    "Many people enjoy reading novels because they allow the mind to explore imaginary worlds.",
+    "Traveling to different countries exposes individuals to new cultures, traditions, and lifestyles.",
+    "Healthy eating and regular exercise are important for maintaining physical and mental well-being.",
+    "Modern education encourages students to develop critical thinking and problem-solving skills.",
+    "Artists often express their emotions and experiences through paintings, music, and sculpture."
   ],
+
   hard: [
-    'Quantum mechanics represents a fundamental theory in physics that describes the physical properties of nature at the scale of atoms and subatomic particles, challenging our classical understanding of reality.',
-    'Cryptocurrency and blockchain technology have emerged as revolutionary concepts that could potentially transform traditional financial systems through decentralized, transparent, and secure transactions.',
-    'Artificial intelligence and machine learning algorithms are increasingly sophisticated, capable of processing vast amounts of data to identify patterns and make predictions with remarkable accuracy.',
+    "Quantum mechanics represents a fundamental theory describing nature at atomic and subatomic scales, challenging classical physics.",
+    "Blockchain technology has the potential to transform digital systems by enabling decentralized and transparent data management.",
+    "Artificial intelligence algorithms analyze vast datasets to discover patterns and generate predictive insights.",
+    "Neuroscience continues to uncover the complex network of neurons that govern human behavior and decision-making.",
+    "Astrophysicists study the formation and evolution of galaxies to understand the origins of the universe.",
+    "Philosophical discourse often involves questioning deeply held beliefs to seek logical clarity and truth.",
+    "The complexity of biological ecosystems highlights the delicate interdependence between living organisms.",
+    "Linguistic diversity across regions showcases the evolution of human communication and cultural identity.",
+    "Advanced encryption protocols ensure secure communication across modern digital infrastructures.",
+    "Economic globalization influences markets worldwide, creating both opportunities and challenges for nations."
   ],
 };
 
