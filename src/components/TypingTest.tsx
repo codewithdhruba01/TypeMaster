@@ -106,7 +106,6 @@ const TypingTest: React.FC = () => {
   const generateText = useCallback(() => {
     const samples = textSamples[settings.difficulty];
     if (settings.mode === 'words') {
-      // Generate text with specific word count
       let words: string[] = [];
       while (words.length < settings.wordCount) {
         const randomSample =
@@ -116,7 +115,6 @@ const TypingTest: React.FC = () => {
       }
       return words.slice(0, settings.wordCount).join(' ');
     } else {
-      // For time mode, use longer text
       return samples[Math.floor(Math.random() * samples.length)];
     }
   }, [settings]);
@@ -175,7 +173,6 @@ const TypingTest: React.FC = () => {
         const newStats = calculateStats(userInput, elapsed);
         setStats(newStats);
 
-        // Check if time is up for time mode
         if (settings.mode === 'time' && elapsed >= settings.duration) {
           setIsFinished(true);
           if (intervalRef.current) {
@@ -199,7 +196,6 @@ const TypingTest: React.FC = () => {
       setUserInput(value);
       setCurrentIndex(value.length);
 
-      // Check if test is complete for words mode
       if (settings.mode === 'words' && value.length === currentText.length) {
         setIsFinished(true);
         if (intervalRef.current) {
@@ -223,7 +219,6 @@ const TypingTest: React.FC = () => {
     } else {
       // Resuming
       if (startTime) {
-        const pausedTime = Date.now() - startTime - stats.timeElapsed * 1000;
         setStartTime(Date.now() - stats.timeElapsed * 1000);
         startTimer();
       }
@@ -386,7 +381,6 @@ const TypingTest: React.FC = () => {
             Test your typing speed and accuracy with customizable settings
           </p>
 
-          {/* Test Mode Indicator */}
           <div className="flex justify-center items-center gap-4 mb-4">
             <div className="bg-white rounded-full px-6 py-2 shadow-md border">
               <span className="text-sm font-semibold font-outfit text-gray-600">
@@ -410,7 +404,6 @@ const TypingTest: React.FC = () => {
           </div>
         </div>
 
-        {/* Settings Panel */}
         {showSettings && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
@@ -419,7 +412,6 @@ const TypingTest: React.FC = () => {
               </h3>
 
               <div className="space-y-6">
-                {/* Test Mode */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
                     Test Mode
@@ -454,7 +446,6 @@ const TypingTest: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Duration/Word Count */}
                 {settings.mode === 'time' ? (
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
@@ -503,7 +494,6 @@ const TypingTest: React.FC = () => {
                   </div>
                 )}
 
-                {/* Difficulty */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
                     Difficulty Level
@@ -546,7 +536,6 @@ const TypingTest: React.FC = () => {
           </div>
         )}
 
-        {/* Main Timer Display */}
         {settings.mode === 'time' && (
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-32 h-32 bg-white rounded-full shadow-lg border-4 border-blue-100">
@@ -789,7 +778,6 @@ const TypingTest: React.FC = () => {
           </div>
         )}
 
-        {/* Pause Overlay */}
         {isPaused && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40">
             <div className="bg-white rounded-2xl p-8 text-center shadow-2xl">
