@@ -660,7 +660,7 @@ const TypingTest: React.FC = () => {
         <div className="flex flex-wrap gap-4 justify-center mb-8">
           <button
             onClick={() => setShowSettings(true)}
-            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="btn-keyboard flex items-center gap-2 px-6 py-3 font-semibold hover:text-gray-300"
           >
             <Settings className="w-5 h-5" />
             Settings
@@ -669,11 +669,7 @@ const TypingTest: React.FC = () => {
           {isStarted && !isFinished && (
             <button
               onClick={togglePause}
-              className={`flex items-center gap-2 px-6 py-3 text-white rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg ${
-                isPaused
-                  ? 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800'
-                  : 'bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800'
-              }`}
+              className="btn-keyboard flex items-center gap-2 px-6 py-3 font-semibold hover:text-gray-300"
             >
               {isPaused ? (
                 <Play className="w-5 h-5" />
@@ -686,7 +682,7 @@ const TypingTest: React.FC = () => {
 
           <button
             onClick={resetTest}
-            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="btn-keyboard flex items-center gap-2 px-6 py-3 font-semibold hover:text-gray-300"
           >
             <RotateCcw className="w-5 h-5" />
             Reset Test
