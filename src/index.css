@@ -86,3 +86,25 @@ button:active {
     inset 0px 1px 1px rgba(255,255,255,0.1),
     inset 0px -2px 4px rgba(0,0,0,0.3) !important;
 }
+
+.btn-keyboard-purple {
+  background: linear-gradient(180deg, #9b6cff 0%, #7641f2 100%);
+  border: 1px solid #481fb3;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.05s, box-shadow 0.05s;
+  box-shadow: 
+    0px 3px 0px 0px #381494, 
+    inset 0px 1px 1px rgba(255,255,255,0.4),
+    inset 0px -4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-keyboard-purple:active {
+  transform: translateY(2px) !important;
+  box-shadow: 
+    0px 0px 0px 0px #381494, 
+    inset 0px 1px 1px rgba(255,255,255,0.3),
+    inset 0px -2px 4px rgba(0,0,0,0.2) !important;
+}

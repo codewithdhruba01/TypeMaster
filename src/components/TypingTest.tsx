@@ -433,10 +433,10 @@ const TypingTest: React.FC = () => {
                       onClick={() =>
                         setSettings((prev) => ({ ...prev, mode: 'time' }))
                       }
-                      className={`p-3 rounded-lg border-2 transition-all ${
+                      className={`p-3 transition-all font-semibold ${
                         settings.mode === 'time'
-                          ? 'border-blue-500 bg-blue-50 text-blue-700'
-                          : 'border-gray-200 hover:border-gray-300'
+                          ? 'btn-keyboard-purple text-white translate-y-[2px]'
+                          : 'btn-keyboard text-gray-400 hover:text-white'
                       }`}
                     >
                       <Timer className="w-5 h-5 mx-auto mb-1" />
@@ -446,10 +446,10 @@ const TypingTest: React.FC = () => {
                       onClick={() =>
                         setSettings((prev) => ({ ...prev, mode: 'words' }))
                       }
-                      className={`p-3 rounded-lg border-2 transition-all ${
+                      className={`p-3 transition-all font-semibold ${
                         settings.mode === 'words'
-                          ? 'border-blue-500 bg-blue-50 text-blue-700'
-                          : 'border-gray-200 hover:border-gray-300'
+                          ? 'btn-keyboard-purple text-white translate-y-[2px]'
+                          : 'btn-keyboard text-gray-400 hover:text-white'
                       }`}
                     >
                       <Target className="w-5 h-5 mx-auto mb-1" />
@@ -470,10 +470,10 @@ const TypingTest: React.FC = () => {
                           onClick={() =>
                             setSettings((prev) => ({ ...prev, duration }))
                           }
-                          className={`p-2 rounded-lg border-2 transition-all text-sm font-semibold ${
+                          className={`p-2 transition-all text-sm font-semibold ${
                             settings.duration === duration
-                              ? 'border-blue-500 bg-blue-50 text-blue-700'
-                              : 'border-gray-200 hover:border-gray-300'
+                              ? 'btn-keyboard-purple text-white translate-y-[2px]'
+                              : 'btn-keyboard text-gray-400 hover:text-white'
                           }`}
                         >
                           {duration < 60 ? `${duration}s` : `${duration / 60}m`}
@@ -493,10 +493,10 @@ const TypingTest: React.FC = () => {
                           onClick={() =>
                             setSettings((prev) => ({ ...prev, wordCount }))
                           }
-                          className={`p-2 rounded-lg border-2 transition-all text-sm font-semibold ${
+                          className={`p-2 transition-all text-sm font-semibold ${
                             settings.wordCount === wordCount
-                              ? 'border-blue-500 bg-blue-50 text-blue-700'
-                              : 'border-gray-200 hover:border-gray-300'
+                              ? 'btn-keyboard-purple text-white translate-y-[2px]'
+                              : 'btn-keyboard text-gray-400 hover:text-white'
                           }`}
                         >
                           {wordCount}
@@ -517,10 +517,10 @@ const TypingTest: React.FC = () => {
                         onClick={() =>
                           setSettings((prev) => ({ ...prev, difficulty }))
                         }
-                        className={`p-2 rounded-lg border-2 transition-all text-sm font-semibold capitalize ${
+                        className={`p-2 transition-all text-sm font-semibold capitalize ${
                           settings.difficulty === difficulty
-                            ? 'border-blue-500 bg-blue-50 text-blue-700'
-                            : 'border-gray-200 hover:border-gray-300'
+                            ? 'btn-keyboard-purple text-white translate-y-[2px]'
+                            : 'btn-keyboard text-gray-400 hover:text-white'
                         }`}
                       >
                         {difficulty}
@@ -533,13 +533,13 @@ const TypingTest: React.FC = () => {
               <div className="flex gap-3 mt-8">
                 <button
                   onClick={() => setShowSettings(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all"
+                  className="flex-1 px-4 py-2 transition-all btn-keyboard text-gray-400 hover:text-white font-semibold"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={() => applySettings(settings)}
-                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
+                  className="flex-1 px-4 py-2 transition-all btn-keyboard-purple text-white font-semibold"
                 >
                   Apply Settings
                 </button>
