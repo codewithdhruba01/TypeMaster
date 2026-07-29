@@ -277,6 +277,18 @@ const TypingTest: React.FC = () => {
     resetTest();
   };
 
+  useEffect(() => {
+    if (showSettings || isPaused) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showSettings, isPaused]);
+
   const renderText = () => {
     return currentText.split('').map((char, index) => {
       let className = 'transition-all duration-200 ';
