@@ -8,9 +8,10 @@ interface KeyProps {
   w?: number;
   purple?: boolean;
   isLogo?: boolean;
+  smallMain?: boolean;
 }
 
-const Key: React.FC<KeyProps> = ({ main, tr, bc, w = 44, purple = false, isLogo = false }) => {
+const Key: React.FC<KeyProps> = ({ main, tr, bc, w = 44, purple = false, isLogo = false, smallMain = false }) => {
   if (isLogo) {
     return (
       <div className="key-logo">
@@ -28,11 +29,11 @@ const Key: React.FC<KeyProps> = ({ main, tr, bc, w = 44, purple = false, isLogo 
     >
       {isCentered ? (
         <div className="flex h-full w-full items-center justify-center">
-          <span className="text-[13px] font-bold tracking-wide">{main}</span>
+          <span className={`${smallMain ? 'text-[10px]' : 'text-[13px]'} font-bold tracking-wide`}>{main}</span>
         </div>
       ) : (
         <>
-          <span className="absolute top-1.5 left-2 text-[14px] font-bold leading-none">{main}</span>
+          <span className={`absolute top-1.5 left-2 ${smallMain ? 'text-[10px]' : 'text-[14px]'} font-bold leading-none`}>{main}</span>
           {tr && (
             <span className="absolute top-1 right-2 text-[11px] font-medium opacity-80 leading-none">
               {tr}
@@ -83,7 +84,7 @@ const Keyboard: React.FC = () => {
     { main: '[', tr: '{' },
     { main: ']', tr: '}' },
     { main: '\\', tr: '|', w: 68 },
-    { main: 'Del', bc: 'Home', purple: true },
+    { main: 'Del', bc: 'Home', purple: true, w: 80 },
   ];
 
   const row3 = [
@@ -99,12 +100,12 @@ const Keyboard: React.FC = () => {
     { main: 'L' },
     { main: ';', tr: ':' },
     { main: '\'', tr: '"' },
-    { main: 'Enter', w: 104, purple: true },
-    { main: 'PgDn', purple: true },
+    { main: 'Enter', w: 122, purple: true },
+    { main: 'PgDn', purple: true, smallMain: true, w: 62 },
   ];
 
   const row4 = [
-    { main: 'Shift', w: 104, purple: true },
+    { main: 'Shift', w: 116, purple: true },
     { main: 'Z' },
     { main: 'X' },
     { main: 'C' },
@@ -115,16 +116,16 @@ const Keyboard: React.FC = () => {
     { main: ',', tr: '<', bc: '🔉' },
     { main: '.', tr: '>', bc: '🔊' },
     { main: '/', tr: '?', bc: '🔇' },
-    { main: 'Shift', w: 80, purple: true },
+    { main: 'Shift', w: 92, purple: true },
     { main: '↑', bc: '☀' },
-    { main: 'PgUp', bc: 'End', purple: true },
+    { main: 'PgUp', bc: 'End', purple: true, smallMain: true, w: 56 },
   ];
 
   const row5 = [
     { main: 'Ctrl', bc: 'Control', w: 56, purple: true },
     { main: 'Win', bc: 'Option', w: 56, purple: true },
     { main: 'Alt', bc: 'Command', w: 56, purple: true },
-    { main: '', w: 296 },
+    { main: '', w: 310 },
     { main: 'Alt', bc: 'Command', w: 56, purple: true },
     { main: 'Fn', w: 44, purple: true },
     { main: 'Ctrl', w: 56, purple: true },
