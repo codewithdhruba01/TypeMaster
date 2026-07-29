@@ -54,9 +54,13 @@ const Key: React.FC<KeyProps> = ({ main, tr, bc, w = 44, purple = false, isLogo 
 
 const Keyboard: React.FC = () => {
   const [activeKeys, setActiveKeys] = useState<Set<string>>(new Set());
+  const [capsLock, setCapsLock] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.getModifierState) {
+        setCapsLock(e.getModifierState('CapsLock'));
+      }
       setActiveKeys((prev) => {
         const next = new Set(prev);
         next.add(e.code);
@@ -65,6 +69,9 @@ const Keyboard: React.FC = () => {
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.getModifierState) {
+        setCapsLock(e.getModifierState('CapsLock'));
+      }
       setActiveKeys((prev) => {
         const next = new Set(prev);
         next.delete(e.code);
@@ -206,7 +213,7 @@ const Keyboard: React.FC = () => {
       <div className="keyboard-case">
         <div className="led-container">
           <div className="led"></div>
-          <div className="led"></div>
+          <div className={`led ${capsLock ? 'green' : ''}`}></div>
           <div className="led"></div>
         </div>
         <div className="keyboard-inner">
