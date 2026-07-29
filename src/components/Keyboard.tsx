@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Keyboard.css';
 
 interface KeyProps {
@@ -9,9 +9,11 @@ interface KeyProps {
   purple?: boolean;
   isLogo?: boolean;
   smallMain?: boolean;
+  id?: string;
+  isActive?: boolean;
 }
 
-const Key: React.FC<KeyProps> = ({ main, tr, bc, w = 44, purple = false, isLogo = false, smallMain = false }) => {
+const Key: React.FC<KeyProps> = ({ main, tr, bc, w = 44, purple = false, isLogo = false, smallMain = false, isActive = false }) => {
   if (isLogo) {
     return (
       <div className="key-logo">
@@ -24,7 +26,7 @@ const Key: React.FC<KeyProps> = ({ main, tr, bc, w = 44, purple = false, isLogo 
 
   return (
     <div
-      className={`key ${purple ? 'key-purple' : 'key-dark'}`}
+      className={`key ${purple ? 'key-purple' : 'key-dark'} ${isActive ? 'active' : ''}`}
       style={{ width: `${w}px`, height: '44px' }}
     >
       {isCentered ? (
@@ -51,8 +53,73 @@ const Key: React.FC<KeyProps> = ({ main, tr, bc, w = 44, purple = false, isLogo 
 };
 
 const Keyboard: React.FC = () => {
+  const [activeKeys, setActiveKeys] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      setActiveKeys((prev) => {
+        const next = new Set(prev);
+        next.add(e.code);
+        return next;
+      });
+    };
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+      setActiveKeys((prev) => {
+        const next = new Set(prev);
+        next.delete(e.code);
+        return next;
+      });
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
+
+  const isKeyActive = (k: any) => {
+    if (k.id && activeKeys.has(k.id)) return true;
+    
+    // Check by mapping event.code to main text
+    const codeMap: Record<string, string> = {
+      Escape: 'Esc',
+      Tab: 'Tab',
+      CapsLock: 'Caps',
+      Enter: 'Enter',
+      Delete: 'Del',
+      PageUp: 'PgUp',
+      PageDown: 'PgDn',
+      Minus: '-',
+      Equal: '=',
+      BracketLeft: '[',
+      BracketRight: ']',
+      Backslash: '\\',
+      Semicolon: ';',
+      Quote: "'",
+      Comma: ',',
+      Period: '.',
+      Slash: '/',
+      ArrowUp: '↑',
+      ArrowDown: '↓',
+      ArrowLeft: '←',
+      ArrowRight: '→'
+    };
+
+    for (const code of Array.from(activeKeys)) {
+      if (k.id && code === k.id) return true;
+      if (code.startsWith('Key') && code.replace('Key', '') === k.main) return true;
+      if (code.startsWith('Digit') && code.replace('Digit', '') === k.main) return true;
+      if (codeMap[code] === k.main && k.id === undefined) return true;
+    }
+    return false;
+  };
+
   const row1 = [
-    { main: 'Esc', purple: true },
+    { main: 'Esc', purple: true, id: 'Escape' },
     { main: '1', tr: '!', bc: 'F1' },
     { main: '2', tr: '@', bc: 'F2' },
     { main: '3', tr: '#', bc: 'F3' },
@@ -65,8 +132,8 @@ const Keyboard: React.FC = () => {
     { main: '0', tr: ')', bc: 'F10' },
     { main: '-', tr: '_', bc: 'F11' },
     { main: '=', tr: '+', bc: 'F12' },
-    { main: '←', bc: 'Home', w: 92, purple: true },
-    { main: '', isLogo: true },
+    { main: '←', bc: 'Home', w: 92, purple: true, id: 'Backspace' },
+    { main: '', isLogo: true, id: 'Backquote' },
   ];
 
   const row2 = [
@@ -84,7 +151,7 @@ const Keyboard: React.FC = () => {
     { main: '[', tr: '{' },
     { main: ']', tr: '}' },
     { main: '\\', tr: '|', w: 68 },
-    { main: 'Del', bc: 'Home', purple: true, w: 80 },
+    { main: 'Del', purple: true, w: 80 },
   ];
 
   const row3 = [
@@ -105,7 +172,7 @@ const Keyboard: React.FC = () => {
   ];
 
   const row4 = [
-    { main: 'Shift', w: 116, purple: true },
+    { main: 'Shift', w: 116, purple: true, id: 'ShiftLeft' },
     { main: 'Z' },
     { main: 'X' },
     { main: 'C' },
@@ -116,19 +183,19 @@ const Keyboard: React.FC = () => {
     { main: ',', tr: '<', bc: '🔉' },
     { main: '.', tr: '>', bc: '🔊' },
     { main: '/', tr: '?', bc: '🔇' },
-    { main: 'Shift', w: 92, purple: true },
+    { main: 'Shift', w: 92, purple: true, id: 'ShiftRight' },
     { main: '↑', bc: '☀' },
     { main: 'PgUp', bc: 'End', purple: true, smallMain: true, w: 56 },
   ];
 
   const row5 = [
-    { main: 'Ctrl', bc: 'Control', w: 56, purple: true },
-    { main: 'Win', bc: 'Option', w: 56, purple: true },
-    { main: 'Alt', bc: 'Command', w: 56, purple: true },
-    { main: '', w: 310 },
-    { main: 'Alt', bc: 'Command', w: 56, purple: true },
+    { main: 'Ctrl', bc: 'Control', w: 56, purple: true, id: 'ControlLeft' },
+    { main: 'Win', bc: 'Option', w: 56, purple: true, id: 'MetaLeft' },
+    { main: 'Alt', bc: 'Command', w: 56, purple: true, id: 'AltLeft' },
+    { main: '', w: 310, id: 'Space' },
+    { main: 'Alt', bc: 'Command', w: 56, purple: true, id: 'AltRight' },
     { main: 'Fn', w: 44, purple: true },
-    { main: 'Ctrl', w: 56, purple: true },
+    { main: 'Ctrl', w: 56, purple: true, id: 'ControlRight' },
     { main: '←', bc: '☀' },
     { main: '↓', bc: '☀' },
     { main: '→' },
@@ -145,27 +212,27 @@ const Keyboard: React.FC = () => {
         <div className="keyboard-inner">
           <div className="key-row">
             {row1.map((k, i) => (
-              <Key key={`r1-${i}`} {...k} />
+              <Key key={`r1-${i}`} {...k} isActive={isKeyActive(k)} />
             ))}
           </div>
           <div className="key-row">
             {row2.map((k, i) => (
-              <Key key={`r2-${i}`} {...k} />
+              <Key key={`r2-${i}`} {...k} isActive={isKeyActive(k)} />
             ))}
           </div>
           <div className="key-row">
             {row3.map((k, i) => (
-              <Key key={`r3-${i}`} {...k} />
+              <Key key={`r3-${i}`} {...k} isActive={isKeyActive(k)} />
             ))}
           </div>
           <div className="key-row">
             {row4.map((k, i) => (
-              <Key key={`r4-${i}`} {...k} />
+              <Key key={`r4-${i}`} {...k} isActive={isKeyActive(k)} />
             ))}
           </div>
           <div className="key-row">
             {row5.map((k, i) => (
-              <Key key={`r5-${i}`} {...k} />
+              <Key key={`r5-${i}`} {...k} isActive={isKeyActive(k)} />
             ))}
           </div>
         </div>

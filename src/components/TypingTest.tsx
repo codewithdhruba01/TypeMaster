@@ -101,7 +101,6 @@ const TypingTest: React.FC = () => {
     netWpm: 0,
   });
 
-  const inputRef = useRef<HTMLInputElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const generateText = useCallback(() => {
@@ -184,29 +183,49 @@ const TypingTest: React.FC = () => {
     }, 100);
   }, [startTime, isPaused, userInput, calculateStats, settings]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if (isFinished || isPaused || showSettings) return;
+      if (e.ctrlKey || e.altKey || e.metaKey) return;
 
-    if (!isStarted && value.length > 0) {
-      setIsStarted(true);
-      setStartTime(Date.now());
-      startTimer();
-    }
-
-    if (value.length <= currentText.length) {
-      setUserInput(value);
-      setCurrentIndex(value.length);
-
-      if (settings.mode === 'words' && value.length === currentText.length) {
-        setIsFinished(true);
-        if (intervalRef.current) {
-          clearInterval(intervalRef.current);
-        }
-        const finalStats = calculateStats(value, stats.timeElapsed);
-        setStats(finalStats);
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        setUserInput((prev) => {
+          const newValue = prev.slice(0, -1);
+          setCurrentIndex(newValue.length);
+          return newValue;
+        });
+        return;
       }
+
+      if (e.key.length === 1) {
+        e.preventDefault();
+        setUserInput((prev) => {
+          if (prev.length >= currentText.length) return prev;
+          const newValue = prev + e.key;
+          setCurrentIndex(newValue.length);
+
+          if (!isStarted) {
+            setIsStarted(true);
+            setStartTime(Date.now());
+          }
+
+          return newValue;
+        });
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, [isFinished, isPaused, isStarted, currentText, showSettings]);
+
+  useEffect(() => {
+    if (isStarted && settings.mode === 'words' && userInput.length > 0 && userInput.length === currentText.length) {
+      setIsFinished(true);
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      setStats((prev) => calculateStats(userInput, prev.timeElapsed));
     }
-  };
+  }, [userInput, currentText, isStarted, settings.mode, calculateStats]);
 
   const togglePause = () => {
     if (!isStarted || isFinished) return;
@@ -250,10 +269,6 @@ const TypingTest: React.FC = () => {
     }
 
     setCurrentText(generateText());
-
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
   };
 
   const applySettings = (newSettings: TestSettings) => {
@@ -340,10 +355,6 @@ const TypingTest: React.FC = () => {
   }, [generateText, settings]);
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -633,11 +644,6 @@ const TypingTest: React.FC = () => {
           </div>
         </div>
 
-        {/* Keyboard Section */}
-        <div className="mb-8 flex justify-center w-full transform scale-90 md:scale-100">
-          <Keyboard />
-        </div>
-
         {/* Text Display */}
         <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 mb-6">
           <div className="text-xl leading-relaxed font-poppins select-none min-h-[120px]">
@@ -645,19 +651,9 @@ const TypingTest: React.FC = () => {
           </div>
         </div>
 
-        {/* Input Area */}
-        <div className="bg-white rounded-xl p-6 font-poppins shadow-lg border border-gray-100 mb-6">
-          <input
-            ref={inputRef}
-            type="text"
-            value={userInput}
-            onChange={handleInputChange}
-            disabled={isFinished || isPaused}
-            placeholder={
-              isPaused ? 'Test is paused...' : 'Start typing here...'
-            }
-            className="w-full text-xl p-4 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-all duration-300 font-mono disabled:bg-gray-50"
-          />
+        {/* Keyboard Section */}
+        <div className="mb-8 flex justify-center w-full transform scale-90 md:scale-100">
+          <Keyboard />
         </div>
 
         {/* Control Buttons */}

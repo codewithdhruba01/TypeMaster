@@ -80,7 +80,7 @@
   transition: transform 0.05s, box-shadow 0.05s;
 }
 
-.key:active {
+.key:active, .key.active {
   transform: translateY(2px);
 }
 
@@ -92,7 +92,7 @@
     inset 0px 1px 1px rgba(255,255,255,0.15),
     inset 0px -4px 8px rgba(0,0,0,0.3);
 }
-.key-dark:active {
+.key-dark:active, .key-dark.active {
   box-shadow: 
     0px 0px 0px 0px #0a0a0b, 
     inset 0px 1px 1px rgba(255,255,255,0.1),
@@ -107,7 +107,7 @@
     inset 0px 1px 1px rgba(255,255,255,0.4),
     inset 0px -4px 8px rgba(0,0,0,0.2);
 }
-.key-purple:active {
+.key-purple:active, .key-purple.active {
   box-shadow: 
     0px 0px 0px 0px #381494, 
     inset 0px 1px 1px rgba(255,255,255,0.3),
