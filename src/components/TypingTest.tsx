@@ -295,7 +295,7 @@ const TypingTest: React.FC = () => {
       ) {
         className += 'text-blue-600 bg-blue-200 rounded px-0.5 animate-pulse';
       } else {
-        className += 'text-gray-700';
+        className += 'text-gray-300';
       }
 
       return (
@@ -335,7 +335,7 @@ const TypingTest: React.FC = () => {
       };
     return {
       level: 'Novice',
-      color: 'text-gray-600',
+      color: 'text-gray-400',
       icon: <AlertCircle className="w-5 h-5" />,
     };
   };
@@ -382,20 +382,20 @@ const TypingTest: React.FC = () => {
   const performance = getPerformanceLevel(stats.wpm);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#050505] to-[#1a0b2e] py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 md:mb-10">
-          <h1 className="text-5xl font-bold font-excon text-gray-800 mb-4 mt-10 animate-fade-in">
+          <h1 className="text-5xl font-bold font-excon text-white mb-4 mt-10 animate-fade-in">
             ⚡Typing Master
           </h1>
-          <p className="text-gray-600 text-xl mb-6 font-supreme">
+          <p className="text-gray-400 text-xl mb-6 font-supreme">
             Test your typing speed and accuracy with customizable settings
           </p>
 
           <div className="flex justify-center items-center gap-4 mb-4">
-            <div className="bg-white rounded-full px-6 py-2 shadow-md border">
-              <span className="text-sm font-semibold font-outfit text-gray-600">
+            <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-full px-6 py-2 shadow-md border border-[#141415]">
+              <span className="text-sm font-semibold font-outfit text-gray-400">
                 Mode:{' '}
               </span>
               <span className="text-sm font-bold font-outfit text-blue-600 capitalize">
@@ -405,8 +405,8 @@ const TypingTest: React.FC = () => {
                   : `(${settings.wordCount} words)`}
               </span>
             </div>
-            <div className="bg-white rounded-full px-6 py-2 shadow-md border">
-              <span className="text-sm font-semibold font-outfit text-gray-600">
+            <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-full px-6 py-2 shadow-md border border-[#141415]">
+              <span className="text-sm font-semibold font-outfit text-gray-400">
                 Difficulty:{' '}
               </span>
               <span className="text-sm font-bold font-outfit text-purple-600 capitalize">
@@ -418,14 +418,14 @@ const TypingTest: React.FC = () => {
 
         {showSettings && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
-              <h3 className="text-2xl font-bold font-outfit text-gray-800 mb-6 text-center">
+            <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl border border-[#141415]">
+              <h3 className="text-2xl font-bold font-outfit text-gray-100 mb-6 text-center">
                 Test Settings
               </h3>
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">
+                  <label className="block text-sm font-semibold text-gray-300 mb-3">
                     Test Mode
                   </label>
                   <div className="grid grid-cols-2 gap-3">
@@ -460,7 +460,7 @@ const TypingTest: React.FC = () => {
 
                 {settings.mode === 'time' ? (
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-3">
+                    <label className="block text-sm font-semibold text-gray-300 mb-3">
                       Duration (seconds)
                     </label>
                     <div className="grid grid-cols-4 gap-2">
@@ -483,7 +483,7 @@ const TypingTest: React.FC = () => {
                   </div>
                 ) : (
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-3">
+                    <label className="block text-sm font-semibold text-gray-300 mb-3">
                       Word Count
                     </label>
                     <div className="grid grid-cols-4 gap-2">
@@ -507,7 +507,7 @@ const TypingTest: React.FC = () => {
                 )}
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">
+                  <label className="block text-sm font-semibold text-gray-300 mb-3">
                     Difficulty Level
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -550,7 +550,7 @@ const TypingTest: React.FC = () => {
 
         {settings.mode === 'time' && (
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-32 h-32 bg-white rounded-full shadow-lg border-4 border-blue-100">
+            <div className="inline-flex items-center justify-center w-32 h-32 bg-gradient-to-b from-[#38383a] to-[#252527] rounded-full shadow-lg border-4 border-[#141415]">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600">
                   {formatTime(Math.max(0, stats.timeRemaining))}
@@ -565,20 +565,20 @@ const TypingTest: React.FC = () => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-          <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-xl p-4 shadow-lg border border-[#141415] hover:shadow-xl transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">WPM</p>
+                <p className="text-sm text-gray-400">WPM</p>
                 <p className="text-2xl font-bold text-blue-600">{stats.wpm}</p>
               </div>
               <Zap className="w-8 h-8 text-blue-500" />
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-xl p-4 shadow-lg border border-[#141415] hover:shadow-xl transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Accuracy</p>
+                <p className="text-sm text-gray-400">Accuracy</p>
                 <p className="text-2xl font-bold text-green-600">
                   {stats.accuracy}%
                 </p>
@@ -587,10 +587,10 @@ const TypingTest: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-xl p-4 shadow-lg border border-[#141415] hover:shadow-xl transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Time</p>
+                <p className="text-sm text-gray-400">Time</p>
                 <p className="text-2xl font-bold text-purple-600">
                   {formatTime(stats.timeElapsed)}
                 </p>
@@ -599,10 +599,10 @@ const TypingTest: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-xl p-4 shadow-lg border border-[#141415] hover:shadow-xl transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Gross WPM</p>
+                <p className="text-sm text-gray-400">Gross WPM</p>
                 <p className="text-2xl font-bold text-orange-600">
                   {stats.grossWpm}
                 </p>
@@ -611,10 +611,10 @@ const TypingTest: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-xl p-4 shadow-lg border border-[#141415] hover:shadow-xl transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Level</p>
+                <p className="text-sm text-gray-400">Level</p>
                 <p
                   className={`text-lg font-bold ${performance.color} flex items-center gap-1`}
                 >
@@ -629,23 +629,23 @@ const TypingTest: React.FC = () => {
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-outfit text-gray-600">
+            <span className="text-sm font-outfit text-gray-400">
               Progress {settings.mode === 'time' ? '(Time)' : '(Characters)'}
             </span>
-            <span className="text-sm font-semibold text-gray-800">
+            <span className="text-sm font-semibold text-gray-100">
               {Math.round(progress)}%
             </span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+          <div className="w-full bg-gradient-to-b from-[#38383a] to-[#252527] border border-[#141415] shadow-inner rounded-full h-4 overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded-full transition-all duration-500"
+              className="h-full bg-gradient-to-r from-[#9b6cff] to-[#7641f2] rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(155,108,255,0.5)]"
               style={{ width: `${Math.min(100, progress)}%` }}
             ></div>
           </div>
         </div>
 
         {/* Text Display */}
-        <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 mb-6">
+        <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-xl p-8 shadow-lg border border-[#141415] mb-6">
           <div className="text-xl leading-relaxed font-poppins select-none min-h-[120px]">
             {renderText()}
           </div>
@@ -695,16 +695,16 @@ const TypingTest: React.FC = () => {
 
         {/* Results */}
         {isFinished && (
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8 shadow-lg border border-green-200 animate-fade-in">
+          <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-xl p-8 shadow-lg border border-green-200 animate-fade-in">
             <div className="text-center mb-6">
               <Trophy className="w-20 h-20 text-yellow-500 mx-auto mb-4 animate-bounce" />
-              <h2 className="text-4xl font-bold text-gray-800 mb-2">
+              <h2 className="text-4xl font-bold text-gray-100 mb-2">
                 Test Completed! 🎉
               </h2>
               <p className={`text-2xl font-semibold ${performance.color} mb-4`}>
                 Performance Level: {performance.level}
               </p>
-              <div className="text-lg text-gray-600">
+              <div className="text-lg text-gray-400">
                 Test Mode:{' '}
                 <span className="font-semibold capitalize">
                   {settings.mode}
@@ -720,55 +720,55 @@ const TypingTest: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Net WPM</p>
+              <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-lg p-6 shadow-md border border-[#141415]">
+                <p className="text-sm text-gray-400 mb-2">Net WPM</p>
                 <p className="text-4xl font-bold text-blue-600">{stats.wpm}</p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Gross WPM</p>
+              <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-lg p-6 shadow-md border border-[#141415]">
+                <p className="text-sm text-gray-400 mb-2">Gross WPM</p>
                 <p className="text-4xl font-bold text-purple-600">
                   {stats.grossWpm}
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Accuracy</p>
+              <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-lg p-6 shadow-md border border-[#141415]">
+                <p className="text-sm text-gray-400 mb-2">Accuracy</p>
                 <p className="text-4xl font-bold text-green-600">
                   {stats.accuracy}%
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Total Time</p>
+              <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-lg p-6 shadow-md border border-[#141415]">
+                <p className="text-sm text-gray-400 mb-2">Total Time</p>
                 <p className="text-4xl font-bold text-orange-600">
                   {formatTime(stats.timeElapsed)}
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Characters</p>
-                <p className="text-4xl font-bold text-gray-700">
+              <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-lg p-6 shadow-md border border-[#141415]">
+                <p className="text-sm text-gray-400 mb-2">Characters</p>
+                <p className="text-4xl font-bold text-gray-300">
                   {stats.totalCharacters}
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Correct</p>
+              <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-lg p-6 shadow-md border border-[#141415]">
+                <p className="text-sm text-gray-400 mb-2">Correct</p>
                 <p className="text-4xl font-bold text-green-600">
                   {stats.correctCharacters}
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Incorrect</p>
+              <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-lg p-6 shadow-md border border-[#141415]">
+                <p className="text-sm text-gray-400 mb-2">Incorrect</p>
                 <p className="text-4xl font-bold text-red-600">
                   {stats.incorrectCharacters}
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Errors</p>
+              <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-lg p-6 shadow-md border border-[#141415]">
+                <p className="text-sm text-gray-400 mb-2">Errors</p>
                 <p className="text-4xl font-bold text-red-600">
                   {Math.round(
                     (stats.incorrectCharacters / stats.totalCharacters) * 100
@@ -782,12 +782,12 @@ const TypingTest: React.FC = () => {
 
         {isPaused && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40">
-            <div className="bg-white rounded-2xl p-8 text-center shadow-2xl">
+            <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-2xl p-8 text-center shadow-2xl border border-[#141415]">
               <Pause className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">
+              <h3 className="text-2xl font-bold text-gray-100 mb-2">
                 Test Paused
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-400 mb-6">
                 Click Resume to continue your typing test
               </p>
               <button
