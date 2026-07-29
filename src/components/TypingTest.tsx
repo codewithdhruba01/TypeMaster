@@ -11,6 +11,7 @@ import {
   Pause,
   Timer,
 } from 'lucide-react';
+import Keyboard from './Keyboard';
 
 interface TypingStats {
   wpm: number;
@@ -630,6 +631,11 @@ const TypingTest: React.FC = () => {
               style={{ width: `${Math.min(100, progress)}%` }}
             ></div>
           </div>
+        </div>
+
+        {/* Keyboard Section */}
+        <div className="mb-8 flex justify-center w-full transform scale-90 md:scale-100">
+          <Keyboard />
         </div>
 
         {/* Text Display */}
