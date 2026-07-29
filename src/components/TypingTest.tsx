@@ -417,7 +417,7 @@ const TypingTest: React.FC = () => {
         </div>
 
         {showSettings && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
             <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl border border-[#141415]">
               <h3 className="text-2xl font-bold font-outfit text-gray-100 mb-6 text-center">
                 Test Settings
@@ -777,7 +777,7 @@ const TypingTest: React.FC = () => {
         )}
 
         {isPaused && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40">
+          <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-40">
             <div className="bg-gradient-to-b from-[#38383a] to-[#252527] rounded-2xl p-8 text-center shadow-2xl border border-[#141415]">
               <Pause className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-100 mb-2">
