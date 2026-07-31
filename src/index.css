@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-[#050505] text-white;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
