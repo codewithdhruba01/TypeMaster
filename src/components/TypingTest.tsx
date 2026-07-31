@@ -14,6 +14,7 @@ import {
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import Keyboard from './Keyboard';
+import Button from './ui/Button';
 
 interface TypingStats {
   wpm: number;
@@ -551,18 +552,19 @@ const TypingTest: React.FC = () => {
               </div>
 
               <div className="flex gap-3 mt-8">
-                <button
+                <Button
+                  variant="outline"
                   onClick={() => setShowSettings(false)}
-                  className="flex-1 px-4 py-2 transition-all btn-keyboard text-gray-400 hover:text-white font-semibold"
                 >
                   Cancel
-                </button>
-                <button
+                </Button>
+                <Button
+                  variant="secondary"
+                  className="flex-1"
                   onClick={() => applySettings(settings)}
-                  className="flex-1 px-4 py-2 transition-all btn-keyboard-purple text-white font-semibold"
                 >
                   Apply Settings
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -678,18 +680,18 @@ const TypingTest: React.FC = () => {
 
         {/* Control Buttons */}
         <div className="flex flex-wrap gap-4 justify-center mb-8">
-          <button
+          <Button
+            variant="primary"
             onClick={() => setShowSettings(true)}
-            className="btn-keyboard flex items-center gap-2 px-6 py-3 font-semibold hover:text-gray-300"
           >
             <Settings className="w-5 h-5" />
             Settings
-          </button>
+          </Button>
 
           {isStarted && !isFinished && (
-            <button
+            <Button
+              variant="primary"
               onClick={togglePause}
-              className="btn-keyboard flex items-center gap-2 px-6 py-3 font-semibold hover:text-gray-300"
             >
               {isPaused ? (
                 <Play className="w-5 h-5" />
@@ -697,16 +699,16 @@ const TypingTest: React.FC = () => {
                 <Pause className="w-5 h-5" />
               )}
               {isPaused ? 'Resume' : 'Pause'}
-            </button>
+            </Button>
           )}
 
-          <button
+          <Button
+            variant="primary"
             onClick={resetTest}
-            className="btn-keyboard flex items-center gap-2 px-6 py-3 font-semibold hover:text-gray-300"
           >
             <RotateCcw className="w-5 h-5" />
             Reset Test
-          </button>
+          </Button>
         </div>
 
         {/* Results */}
@@ -806,13 +808,13 @@ const TypingTest: React.FC = () => {
               <p className="text-gray-400 mb-6">
                 Click Resume to continue your typing test
               </p>
-              <button
+              <Button
+                variant="success"
                 onClick={togglePause}
-                className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-300 flex items-center gap-2 mx-auto"
               >
                 <Play className="w-5 h-5" />
                 Resume Test
-              </button>
+              </Button>
             </div>
           </div>
         )}
