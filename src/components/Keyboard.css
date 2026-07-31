@@ -136,3 +136,47 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+/* Responsive Scaling for Mobile Devices */
+@media (max-width: 900px) {
+  .keyboard-case {
+    transform: scale(0.85);
+    transform-origin: center center;
+  }
+  .keyboard-wrapper {
+    padding: 40px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .keyboard-case {
+    transform: scale(0.7);
+  }
+  .keyboard-wrapper {
+    padding: 30px 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .keyboard-case {
+    transform: scale(0.55);
+  }
+  .keyboard-wrapper {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .keyboard-case {
+    transform: scale(0.45);
+  }
+  .keyboard-wrapper {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .keyboard-case {
+    transform: scale(0.4);
+  }
+}
